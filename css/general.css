@@ -1,0 +1,348 @@
+/*
+
+01 typography system
+- FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+- Font weights:
+- Line heights
+default: 1
+
+
+02 COLORS
+- primary: #e67e22
+
+- Tints:
+#fdf2e9
+#fae5d3
+
+- Shades:
+#cf711f
+#eb984e
+
+- Accents:
+- Greys:
+#555
+#333
+#6f6f6f (lightest gray allowed on #FDF1E8)
+03 SHADOWS
+
+04 BORDER-RADIUS
+
+defualt: 9px
+Meduim : 11px
+
+05 WHITESPACE
+- SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*  we use this to remove the blue outline when we click on a button
+    or a link, we use outline-offset to move the outline a little bit
+    away from the element, so it doesn't affect the layout of the page
+    and we use outline: none to remove the outline completely which is
+    not recommended as it is important for accessibility
+    so we can just change the color to match the color scheme of the
+    website*/
+*:focus {
+  /* outline: none; */ /* not recommended */
+
+  /* first option */
+  /* outline: 4px dotted #e67e22;
+  outline-offset: 8px; */
+
+  /* second option */
+  outline: none;
+  box-shadow: 0 0 0 0.8rem hsla(28, 80%, 52%, 0.5);
+}
+
+html {
+  /* rem: is the root element font size (html element), if 
+  we don't define any font size for html element, it will be 16px,
+  so 1rem = 16px, it is commen practice to define html font size to be 10px */
+  /* the reason why we use rem is because it is relative to the root element,
+  which change depending on the browser, so it is more flexible */
+
+  /* font-size: 10px; */
+  /* 1rem = 10px; */
+
+  /* the problem in setting font size to 10px that if the uesr decided to increase 
+  the font size in the browser settings, this change will not be reflected in our
+  website, so we need to use percentage instead of px, so if the user increase the
+  font size in the browser settings, it will be reflected in our website,
+  remember that % is percetage relative to the parent element
+  (parent element of html is the browser) */
+
+  font-size: 62.5%;
+  /* 10 px / 16px = 0.625 = 62.5% */
+
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+  overflow-x: hidden; /*==========>*/
+}
+/*
+
+01 typography system
+- FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+- Font weights:
+default: 400
+medium: 500
+semi-bold: 600
+bold: 700
+
+- Line heights
+default: 1
+small: 1.05
+Meduim: 1.2
+paragraph default: 1.6
+large: 1.8
+
+-letter spacing
+0.5px
+o.75px
+
+02 COLORS
+- primary: #e67e22
+- Tints: #fdf2e9
+- Shades: #cf711f
+- Accents:
+- Greys: #555 ,#333
+
+03 SHADOWS
+
+04 BORDER-RADIUS
+default: 9px
+
+05 WHITESPACE
+- SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* font-size: 10px; (default font size is 16px)*/
+
+  /* it is better to make the default font size to be 10px as it is
+  easier to calculate how many pixels will a rem value declartion 
+  would take (2rem * 10px = 20px)*/
+
+  /* we could make the font-size directly = 10px, the problem lies if the user
+  decided to change the font size form browser settings, the webpage fontsize will
+  still be 10 px after this change. to accommodate this we use the % measuring unit,
+  which is used to define a size as relative to an element's parent object (in our case browser font size).*/
+
+  /* 10px / 16px = 0.625 = 62.5% */
+
+  /* percentage of user's browser font-size settings*/
+  font-size: 62.5%; /* by doing so, we make sure that 1 rem == 10 px*/
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ---------------------- GENERAL REUSABLE COMPONENETS ---------------------- */
+/* -------------------------------------------------------------------------- */
+
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-weight: 700;
+  color: #333;
+  letter-spacing: -0.5px;
+}
+.heading-primary {
+  font-size: 5.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+}
+
+.heading-secondary {
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem;
+}
+
+.heading-tertiary {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 3.2rem;
+}
+
+.subheading {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #cf711f;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.75px;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  font-size: 2rem;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+  text-decoration: none;
+  font-weight: 600;
+
+  /* only necessary for .btn itself */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  transition: all 0.5s;
+}
+
+.btn--full:link,
+.btn--full:visited {
+  background-color: #e67e22;
+  color: #fff;
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: #cf711f;
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #fff;
+  color: #555;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #fdf2e9;
+  /* trick to add border inside */
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+.btn--form {
+  background-color: #45260a;
+  color: #fdf2e9;
+  align-self: end;
+  padding: 1.2rem;
+}
+
+.btn--form:hover {
+  background-color: #fdf2e9;
+  color: #555;
+}
+
+.link:link,
+.link:visited {
+  display: inline-block;
+  color: #e67e22;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+.link:hover,
+.link:active {
+  color: #cf711f;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3sec;
+}
+
+.margin-right-sm {
+  margin-right: 1.6rem !important;
+}
+
+.container {
+  max-width: 120rem;
+  /* max-width: 140rem; */
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  row-gap: 9.6rem;
+  column-gap: 6.4rem;
+}
+
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+
+.grid--center-v {
+  align-items: center;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+strong {
+  font-weight: 500;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.list-item {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  line-height: 1.2;
+}
+
+.list-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #e67e22;
+}
